@@ -1,0 +1,21 @@
+{
+  "name": "react-native-snack",
+  "version": "1.0.0",
+  "description": "Snackbar component for React Native",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "tsc && mv js/*.d.ts ."
+  },
+  "author": "Kota Nonaka",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/lodash": "^4.14.134",
+    "@types/react-native": "^0.57.60",
+    "typescript": "^3.5.1"
+  },
+  "dependencies": {
+    "lodash": "^4.17.11",
+    "react-native-iphone-x-helper": "^1.2.1"
+  }
+}
