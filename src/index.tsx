@@ -1,7 +1,6 @@
 import * as React from 'react';
 import * as _ from 'lodash';
 import {Animated, LayoutChangeEvent, StyleSheet, Text} from 'react-native';
-// import {isIPhoneXorAbove} from '../../lib/DeviceInfoUtils';
 import {ifIphoneX} from 'react-native-iphone-x-helper';
 
 export interface SnackbarOptions {
@@ -27,10 +26,11 @@ export class Snackbar extends React.Component<{}, SnackBarState> {
   constructor(props: {}) {
     super(props);
     if (!_.isNil(Snackbar.singletonRef)) {
-      throw new Error('Cannot generate multiple Snackbar instances.');
+      console.warn('Generated multiple snackbar instances.\nThis operation is no effect.')
+    } else {
+      Snackbar.singletonRef = this;
     }
 
-    Snackbar.singletonRef = this;
     this.state = {
       isVisible: false,
       bottomAnim: new Animated.Value(0),
@@ -113,7 +113,6 @@ export class Snackbar extends React.Component<{}, SnackBarState> {
       },
       text: {
         color: this.state.options.textColor || 'white',
-        fontWeight: 'bold',
         fontSize: 14,
         padding: 13,
         lineHeight: 14 * 1.3

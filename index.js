@@ -1,5 +1,5 @@
-const {BarAlert} = require('./js/index');
+const {Snackbar} = require('./js/index');
 
 module.exports = {
-  BarAlert
+  Snackbar
 }

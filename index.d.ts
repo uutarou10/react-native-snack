@@ -23,7 +23,7 @@ interface SnackBarState {
 export declare class Snackbar extends React.Component<{}, SnackBarState> {
     private static singletonRef?;
     constructor(props: {});
-    render(): {};
+    render(): JSX.Element;
     static show(options: SnackbarOptions): void;
     private show;
     private hide;

@@ -1,7 +1,6 @@
 import * as React from 'react';
 import * as _ from 'lodash';
-import { Animated, StyleSheet } from 'react-native';
-// import {isIPhoneXorAbove} from '../../lib/DeviceInfoUtils';
+import { Animated, StyleSheet, Text } from 'react-native';
 import { ifIphoneX } from 'react-native-iphone-x-helper';
 export class Snackbar extends React.Component {
     constructor(props) {
@@ -43,9 +42,11 @@ export class Snackbar extends React.Component {
             });
         };
         if (!_.isNil(Snackbar.singletonRef)) {
-            throw new Error('Cannot generate multiple Snackbar instances.');
+            console.warn('Generated multiple snackbar instances.\nThis operation is no effect.');
         }
-        Snackbar.singletonRef = this;
+        else {
+            Snackbar.singletonRef = this;
+        }
         this.state = {
             isVisible: false,
             bottomAnim: new Animated.Value(0),
@@ -58,16 +59,9 @@ export class Snackbar extends React.Component {
     }
     render() {
         const styles = this.getStyles();
-        return style = { [styles.container, { bottom: this.state.bottomAnim }]:  };
-        onLayout = { this: .onLayout };
-        pointerEvents = { this: .state.isVisible ? 'auto' : 'none' } >
-            style;
-        {
-            styles.text;
-        }
-         > { this: .state.options.message } < /Text>
-            < /Animated.View>;
-        ;
+        return (<Animated.View style={[styles.container, { bottom: this.state.bottomAnim }]} onLayout={this.onLayout} pointerEvents={this.state.isVisible ? 'auto' : 'none'}>
+        <Text style={styles.text}>{this.state.options.message}</Text>
+      </Animated.View>);
     }
     static show(options) {
         Snackbar.singletonRef.show(options);
@@ -83,7 +77,6 @@ export class Snackbar extends React.Component {
             },
             text: {
                 color: this.state.options.textColor || 'white',
-                fontWeight: 'bold',
                 fontSize: 14,
                 padding: 13,
                 lineHeight: 14 * 1.3
