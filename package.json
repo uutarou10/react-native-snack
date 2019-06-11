@@ -9,7 +9,7 @@
     "format": "prettier --write \"src/**/*.{ts,tsx}?\""
   },
   "author": "Kota Nonaka",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@types/lodash": "^4.14.134",
     "@types/react": "^16.8.19",
