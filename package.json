@@ -27,5 +27,9 @@
     "ios",
     "android",
     "material design"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/uutarou10/react-native-snack"
+  }
 }
