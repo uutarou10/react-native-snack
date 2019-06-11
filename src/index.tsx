@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as _ from 'lodash';
-import {Animated, LayoutChangeEvent, StyleSheet, Text} from 'react-native';
-import {ifIphoneX} from 'react-native-iphone-x-helper';
+import { Animated, LayoutChangeEvent, StyleSheet, Text } from 'react-native';
+import { ifIphoneX } from 'react-native-iphone-x-helper';
 
 export interface SnackbarOptions {
   message: string;
@@ -15,7 +15,7 @@ export interface SnackbarOptions {
 interface SnackBarState {
   isVisible: boolean;
   bottomAnim: Animated.Value;
-  currentLayout: {x: number; y: number; width: number; height: number};
+  currentLayout: { x: number; y: number; width: number; height: number };
   isFinishedInitialize: boolean;
   options: SnackbarOptions;
 }
@@ -26,7 +26,9 @@ export class Snackbar extends React.Component<{}, SnackBarState> {
   constructor(props: {}) {
     super(props);
     if (!_.isNil(Snackbar.singletonRef)) {
-      console.warn('Generated multiple snackbar instances.\nThis operation is no effect.')
+      console.warn(
+        'Generated multiple snackbar instances.\nThis operation is no effect.'
+      );
     } else {
       Snackbar.singletonRef = this;
     }
@@ -34,7 +36,7 @@ export class Snackbar extends React.Component<{}, SnackBarState> {
     this.state = {
       isVisible: false,
       bottomAnim: new Animated.Value(0),
-      currentLayout: {x: 0, y: 0, width: 0, height: 0},
+      currentLayout: { x: 0, y: 0, width: 0, height: 0 },
       isFinishedInitialize: false,
       options: {
         message: ''
@@ -47,9 +49,10 @@ export class Snackbar extends React.Component<{}, SnackBarState> {
 
     return (
       <Animated.View
-        style={[styles.container, {bottom: this.state.bottomAnim}]}
+        style={[styles.container, { bottom: this.state.bottomAnim }]}
         onLayout={this.onLayout}
-        pointerEvents={this.state.isVisible ? 'auto' : 'none'}>
+        pointerEvents={this.state.isVisible ? 'auto' : 'none'}
+      >
         <Text style={styles.text}>{this.state.options.message}</Text>
       </Animated.View>
     );
@@ -78,12 +81,12 @@ export class Snackbar extends React.Component<{}, SnackBarState> {
   };
 
   private hide = () => {
-    const {options} = this.state;
+    const { options } = this.state;
     Animated.timing(this.state.bottomAnim, {
       duration: 200,
       toValue: -this.state.currentLayout.height
     }).start(() => {
-      this.setState({isVisible: false});
+      this.setState({ isVisible: false });
 
       if (!_.isNil(options.onCompletedHide)) {
         options.onCompletedHide();

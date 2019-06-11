@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "compile": "tsc && mv js/*.d.ts ."
+    "compile": "tsc && mv js/*.d.ts .",
+    "format": "prettier --write \"src/**/*.{ts,tsx}?\""
   },
   "author": "Kota Nonaka",
   "license": "ISC",
@@ -13,6 +14,7 @@
     "@types/lodash": "^4.14.134",
     "@types/react": "^16.8.19",
     "@types/react-native": "^0.57.60",
+    "prettier": "^1.18.2",
     "typescript": "^3.5.1"
   },
   "dependencies": {
