@@ -18,5 +18,12 @@
   "dependencies": {
     "lodash": "^4.17.11",
     "react-native-iphone-x-helper": "^1.2.1"
-  }
+  },
+  "keywords": [
+    "react-native",
+    "snackbar",
+    "ios",
+    "android",
+    "material design"
+  ]
 }
