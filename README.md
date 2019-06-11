@@ -5,8 +5,7 @@ Simple snackbar component for React Native.
 
 - TypeScript support!
 - iOS(include iPhoneX) & Android support!
-- No native modules. You can use without `react-native link` command!
-- Insert once, use anywhere.
+- No native modules. You can use without `react-native link` command.
 - Customizable
 
 
