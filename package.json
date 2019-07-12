@@ -1,6 +1,6 @@
 {
   "name": "react-native-snack",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Snackbar component for React Native",
   "main": "index.js",
   "scripts": {
@@ -18,7 +18,7 @@
     "typescript": "^3.5.1"
   },
   "dependencies": {
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.14",
     "react-native-iphone-x-helper": "^1.2.1"
   },
   "keywords": [
